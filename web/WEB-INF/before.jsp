@@ -30,7 +30,7 @@ response.setCharacterEncoding("UTF-8");
 // if (item == null) application.setAttribute("solr.item", CateHolder.itemSolr(item = new HttpSolrServer("http://192.168.11.13:8983/solr/item")));
 if (gson == null) application.setAttribute("gson", gson = new GsonBuilder().disableHtmlEscaping().create());
 if (res == null) application.setAttribute("res", res = new File("/home/eapollo/master"));
-if (cdn == null) application.setAttribute("cdn", cdn = "//cdn.wowkool.com/");
+if (cdn == null) application.setAttribute("cdn", cdn = "cdn/");
 if (prefix == null) { prefix = application.getContextPath() + "/"; if (prefix.length() == 0) prefix = "/"; }
 //
 request.setAttribute("remote", WebUtils.remote(request));
@@ -41,6 +41,7 @@ if (StringUtils.endsWithAny(request.getServletPath(), "html", "upload.jsp", "a.j
 //
 String requestURI = request.getRequestURI();
 //
+/*
 if (requestURI.matches("^/adm/?(?:.+?html)?$")) {
 	String licence = (String) session.getAttribute("licence");
 	if (licence == null) {
@@ -67,8 +68,9 @@ if (requestURI.matches("^/adm/?(?:.+?html)?$")) {
 		session.setAttribute("licence.adm.current.name", members.get(current).get("name").getAsString());
 		session.setAttribute("licence.adm.current.display", members.get(current).get("display").getAsString());
 	}
-}
+}*/
 //
+/*
 if (requestURI.matches("^/profile-?.*html$") && !requestURI.matches("^/profile-inquiry.*html$")) {
 	String licence = (String) session.getAttribute("licence");
 	if (licence == null) {
@@ -84,12 +86,13 @@ if (requestURI.matches("^/profile-?.*html$") && !requestURI.matches("^/profile-i
 		}
 		return;
 	}
-}
+}*/
 // skip log
-if (requestURI.matches("^/fun/.+\\.jsp$")) return;
+// if (requestURI.matches("^/fun/.+\\.jsp$")) return;
 //
-Cookie[] cookies = request.getCookies();
+// Cookie[] cookies = request.getCookies();
 //
+/*
 SolrInputDocument doc = new SolrInputDocument();
 doc.setField("id", SolrUtil.logId(calendar.getTimeInMillis()));
 doc.setField("time", calendar.getTime());
@@ -140,5 +143,5 @@ if (cookies != null) {
 		doc.addField("c_" + cookie.getName(), cookie.getValue());
 	}
 }
-request.setAttribute(SolrUtil.LABEL, doc);
+request.setAttribute(SolrUtil.LABEL, doc);*/
 %>

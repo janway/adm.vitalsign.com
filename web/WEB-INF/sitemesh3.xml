@@ -2,17 +2,11 @@
 <sitemesh>
 	<mapping path="/post.html" exclude="true" />
 	<mapping path="/error.html" exclue="true" />
-
 	<mapping path="/adm/*.html" decorator="/WEB-INF/decorator/admin.jsp" />
-
 	<mapping path="/cart*.html" decorator="/WEB-INF/decorator/cart.jsp" />
 	<mapping path="/order-*.html" decorator="/WEB-INF/decorator/cart.jsp" />
-
 	<mapping path="/sign*.html" decorator="/WEB-INF/decorator/sign.jsp" />
 	<mapping path="/forgot-password.html" decorator="/WEB-INF/decorator/sign.jsp" />
-
 	<mapping path="/profile*.html" decorator="/WEB-INF/decorator/profile.jsp" />
-
 	<mapping path="/*.html" decorator="/WEB-INF/decorator/default.jsp" />
-	<mapping path="/index-school.html" decorator="/WEB-INF/decorator/default-school.jsp" />
 </sitemesh>
