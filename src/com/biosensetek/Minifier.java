@@ -1,4 +1,4 @@
-package biosensetek;
+package com.biosensetek;
 
 import java.io.IOException;
 import java.io.Reader;

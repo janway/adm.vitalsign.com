@@ -1,4 +1,4 @@
-package biosensetek;
+package com.biosensetek;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;

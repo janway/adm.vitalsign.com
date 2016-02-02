@@ -1,4 +1,4 @@
-package biosensetek;
+package com.biosensetek;
 
 import java.io.Serializable;
 import java.util.ArrayList;

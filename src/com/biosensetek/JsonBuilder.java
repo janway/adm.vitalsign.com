@@ -1,4 +1,4 @@
-package biosensetek;
+package com.biosensetek;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

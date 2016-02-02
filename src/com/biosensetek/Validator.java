@@ -1,4 +1,4 @@
-package biosensetek;
+package com.biosensetek;
 
 import java.util.function.Function;
 import java.util.function.Predicate;

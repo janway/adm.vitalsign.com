@@ -1,4 +1,4 @@
-package biosensetek.nil;
+package com.biosensetek.nil;
 
 import java.io.IOException;
 

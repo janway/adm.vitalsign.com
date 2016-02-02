@@ -1,4 +1,4 @@
-package biosensetek;
+package com.biosensetek;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
