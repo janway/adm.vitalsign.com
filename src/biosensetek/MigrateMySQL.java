@@ -1,4 +1,4 @@
-package temp.eapollo;
+package biosensetek;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;

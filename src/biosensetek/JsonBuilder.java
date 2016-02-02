@@ -1,4 +1,4 @@
-package com.eapollo;
+package biosensetek;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;

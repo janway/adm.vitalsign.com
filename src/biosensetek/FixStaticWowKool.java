@@ -1,4 +1,4 @@
-package temp.eapollo;
+package biosensetek;
 
 import java.io.File;
 import java.io.FileInputStream;

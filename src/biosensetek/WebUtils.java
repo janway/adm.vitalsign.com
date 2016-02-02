@@ -1,4 +1,4 @@
-package com.eapollo;
+package biosensetek;
 
 import java.io.IOException;
 import java.util.Enumeration;

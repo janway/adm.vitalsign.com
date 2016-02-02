@@ -1,4 +1,4 @@
-package com.eapollo;
+package biosensetek;
 
 import java.util.HashMap;
 import java.util.Map;

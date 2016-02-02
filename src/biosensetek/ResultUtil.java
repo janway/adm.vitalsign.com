@@ -1,4 +1,4 @@
-package com.eapollo;
+package biosensetek;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;

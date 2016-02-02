@@ -1,4 +1,4 @@
-package com.eapollo;
+package biosensetek;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;

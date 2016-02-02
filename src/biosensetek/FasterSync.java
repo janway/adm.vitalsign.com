@@ -1,4 +1,4 @@
-package temp.eapollo;
+package biosensetek;
 
 import java.io.InputStreamReader;
 import java.net.URL;
