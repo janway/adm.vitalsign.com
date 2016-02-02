@@ -22,8 +22,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
-import com.eapollo.DBUtils;
+import com.biosensetek.DBUtils;
 
 public class FixStaticWowKool {
 	public static final String enc(String url) {

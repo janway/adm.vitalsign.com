@@ -1,6 +1,7 @@
+<%@page import="com.google.gson.SerializedJsonObject"%>
 <%@page import="java.util.Map"%>
-<%@page import="com.eapollo.SolrUtil,com.eapollo.WebUtils,com.eapollo.CateHolder"%>
-<%@page import="com.google.gson.Gson,com.google.gson.GsonBuilder,com.google.gson.SerializedJsonObject"%>
+<%@page import="com.biosensetek.SolrUtil,com.biosensetek.WebUtils,com.biosensetek.CateHolder"%>
+<%@page import="com.google.gson.Gson,com.google.gson.GsonBuilder"%>
 <%@page import="java.io.File"%>
 <%@page import="java.util.ArrayList,java.util.Calendar,java.util.Enumeration"%>
 <%@page import="org.apache.commons.lang3.StringUtils"%>
@@ -25,8 +26,8 @@ Calendar calendar = Calendar.getInstance();
 request.setCharacterEncoding("UTF-8");
 response.setCharacterEncoding("UTF-8");
 //
-if (shop == null) application.setAttribute("solr.shop", CateHolder.shopSolr(shop = new HttpSolrServer("http://192.168.11.13:8983/solr/shop")));
-if (item == null) application.setAttribute("solr.item", CateHolder.itemSolr(item = new HttpSolrServer("http://192.168.11.13:8983/solr/item")));
+// if (shop == null) application.setAttribute("solr.shop", CateHolder.shopSolr(shop = new HttpSolrServer("http://192.168.11.13:8983/solr/shop")));
+// if (item == null) application.setAttribute("solr.item", CateHolder.itemSolr(item = new HttpSolrServer("http://192.168.11.13:8983/solr/item")));
 if (gson == null) application.setAttribute("gson", gson = new GsonBuilder().disableHtmlEscaping().create());
 if (res == null) application.setAttribute("res", res = new File("/home/eapollo/master"));
 if (cdn == null) application.setAttribute("cdn", cdn = "//cdn.wowkool.com/");
@@ -137,17 +138,6 @@ names = null;
 if (cookies != null) {
 	for (Cookie cookie : cookies) {
 		doc.addField("c_" + cookie.getName(), cookie.getValue());
-	}
-	// fix old cookie issue
-	for (Cookie cookie : cookies) {
-		String name = cookie.getName();
-		if (StringUtils.equalsIgnoreCase("_ga", name)
-		|| StringUtils.equalsIgnoreCase("ASP.NET_SessionId", name)
-		|| StringUtils.equalsIgnoreCase("wowkoolURL", name)
-		|| StringUtils.equalsIgnoreCase("CKFinder_Path", name)) {
-			cookie.setMaxAge(-1);
-			response.addCookie(cookie);
-		}
 	}
 }
 request.setAttribute(SolrUtil.LABEL, doc);

@@ -17,7 +17,7 @@ public class run {
 				conn.setReadTimeout((int) TimeUnit.SECONDS.toMillis(50));
 				conn.setInstanceFollowRedirects(false);
 				conn.setUseCaches(false);
-				conn.setRequestProperty("User-Agent", "com.eapollo.run");
+				conn.setRequestProperty("User-Agent", "com.biosensetek.run");
 				conn.setRequestProperty("Connection", "close");
 				conn.connect();
 				try (InputStream in = conn.getInputStream()) {

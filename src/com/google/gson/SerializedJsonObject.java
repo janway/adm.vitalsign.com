@@ -6,8 +6,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public class SerializedJsonObject extends JsonElement implements Serializable {
-	private static final long serialVersionUID = -2180120688095573359L;
-
+	private static final long serialVersionUID = 6252042833045929640L;
 	private final LinkedHashMap<String, JsonElement> members = new LinkedHashMap<>();
 
 	JsonElement deepCopy() {

@@ -7,7 +7,7 @@ import java.math.BigInteger;
 import com.google.gson.internal.LazilyParsedNumber;
 
 public class SerializedJsonPrimitive extends JsonElement implements Serializable {
-	private static final long serialVersionUID = 4933912291201966538L;
+	private static final long serialVersionUID = 5946403441264934933L;
 
 	private static final Class<?>[] PRIMITIVE_TYPES = { Integer.TYPE, Long.TYPE, Short.TYPE, Float.TYPE, Double.TYPE, Byte.TYPE, Boolean.TYPE, Character.TYPE, Integer.class, Long.class, Short.class, Float.class, Double.class, Byte.class, Boolean.class, Character.class };
 
