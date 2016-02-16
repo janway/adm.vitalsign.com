@@ -100,14 +100,14 @@ if (AGENT.equals(request.getHeader("user-agent"))) { request.setAttribute("rewri
 request.setCharacterEncoding("UTF-8");
 response.setCharacterEncoding("UTF-8");
 // resource
-if (rewrite(request, response, "^(.+?)/cdn/(?i)([0-9a-z-_]{22})(?:/.*)?$", "$1/res.jsp?d=$2")) return;
+//if (rewrite(request, response, "^(.+?)/cdn/(?i)([0-9a-z-_]{22})(?:/.*)?$", "$1/res.jsp?d=$2")) return;
 // item page
-if (rewrite(request, response, "^(.+?)/item/(.{12})(/.*)?/inquiry$", "$1/item-inquiry.html?n=$2&q=$3")) return;
-if (rewrite(request, response, "^(.+?)/item/(.{12})(/.*)?$", "$1/item.html?n=$2&q=$3")) return;
+//if (rewrite(request, response, "^(.+?)/item/(.{12})(/.*)?/inquiry$", "$1/item-inquiry.html?n=$2&q=$3")) return;
+//if (rewrite(request, response, "^(.+?)/item/(.{12})(/.*)?$", "$1/item.html?n=$2&q=$3")) return;
 // shop page
-if (rewrite(request, response, "^(.+?)(?<!adm)/shop/(?i)([0-9a-z_-]{2,50})(/.*)?/(info|inquiry|note)$", "$1/shop-$4.html?n=$2&q=$3")) return;
-if (rewrite(request, response, "^(.+?)(?<!adm)/shop/(?i)([0-9a-z_-]{2,50})(?:/?)(.*)?$", "$1/shop.html?n=$2&q=$3")) return;
+//if (rewrite(request, response, "^(.+?)(?<!adm)/shop/(?i)([0-9a-z_-]{2,50})(/.*)?/(info|inquiry|note)$", "$1/shop-$4.html?n=$2&q=$3")) return;
+//if (rewrite(request, response, "^(.+?)(?<!adm)/shop/(?i)([0-9a-z_-]{2,50})(?:/?)(.*)?$", "$1/shop.html?n=$2&q=$3")) return;
 // search page
-if (rewrite(request, response, "^(.+?)(?<!adm)/item/?(.*)$", "$1/search.html?q=$2")) return;
-if (rewrite(request, response, "^(.+?)(?<!adm)/shop/?(.*)$", "$1/search.html?z=s&q=$2")) return;
+//if (rewrite(request, response, "^(.+?)(?<!adm)/item/?(.*)$", "$1/search.html?q=$2")) return;
+//if (rewrite(request, response, "^(.+?)(?<!adm)/shop/?(.*)$", "$1/search.html?z=s&q=$2")) return;
 %>

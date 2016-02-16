@@ -1,6 +1,6 @@
 <%@page import="com.google.gson.SerializedJsonObject"%>
 <%@page import="java.util.Map"%>
-<%@page import="com.biosensetek.SolrUtil,com.biosensetek.WebUtils,com.biosensetek.CateHolder"%>
+<%@page import="com.biosensetek.SolrUtil,com.biosensetek.WebUtils"%>
 <%@page import="com.google.gson.Gson,com.google.gson.GsonBuilder"%>
 <%@page import="java.io.File"%>
 <%@page import="java.util.ArrayList,java.util.Calendar,java.util.Enumeration"%>
@@ -144,4 +144,7 @@ if (cookies != null) {
 	}
 }
 request.setAttribute(SolrUtil.LABEL, doc);*/
+
+
+
 %>
