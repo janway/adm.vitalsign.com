@@ -1,3 +1,4 @@
+<%@page import="com.biosensetek.WebUtils"%>
 <%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -338,5 +339,11 @@
                 </div>
             </div>
         </div>
+<%out = WebUtils.script(request, out);%>
+ <script src="${cdn}js/plugins/peity/jquery.peity.min.js"></script>
+ <!-- Peity -->
+ <script src="${cdn}js/demo/peity-demo.js"></script>
+
+<%out = WebUtils.script(out);%>
 </body>
 </html>

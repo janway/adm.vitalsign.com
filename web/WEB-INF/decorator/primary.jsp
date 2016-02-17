@@ -13,6 +13,7 @@
 <link href="${cdn}css/plugins/iCheck/custom.css" rel="stylesheet">
 <link href="${cdn}css/animate.css" rel="stylesheet">
 <link href="${cdn}css/style.css" rel="stylesheet">
+<%if (request.getAttribute("style") != null) { %>${style}<% } %>
 </head>
 <body>
     <div id="wrapper">
@@ -58,10 +59,8 @@
                     <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
                 </li>
             </ul>
-
         </div>
     </nav>
-
         <div id="page-wrapper" class="gray-bg">
         <div class="row border-bottom">
         <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
@@ -173,9 +172,7 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="login.html">
-                        <i class="fa fa-sign-out"></i> Log out
-                    </a>
+                    <a href="login.html"><i class="fa fa-sign-out"></i> Log out</a>
                 </li>
             </ul>
         </nav>
@@ -184,15 +181,9 @@
                 <div class="col-lg-10">
                     <h2>Static Tables</h2>
                     <ol class="breadcrumb">
-                        <li>
-                            <a href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a>Tables</a>
-                        </li>
-                        <li class="active">
-                            <strong>Static Tables</strong>
-                        </li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a>Tables</a></li>
+                        <li class="active"><strong>Static Tables</strong></li>
                     </ol>
                 </div>
                 <div class="col-lg-2">
@@ -205,25 +196,25 @@
         </div>
 	</div>
 </div>
-
-    <!-- Mainly scripts -->
-    <script src="${cdn}js/jquery-2.1.1.js"></script>
-    <script src="${cdn}js/bootstrap.min.js"></script>
-    <script src="${cdn}js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="${cdn}js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-    <!-- Custom and plugin javascript -->
-    <script src="${cdn}js/inspinia.js"></script>
-    <script src="${cdn}js/plugins/pace/pace.min.js"></script>
-    <!-- iCheck -->
-    <script src="${cdn}js/plugins/iCheck/icheck.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.i-checks').iCheck({
-                checkboxClass: 'icheckbox_square-green',
-                radioClass: 'iradio_square-green',
-            });
+<!-- Mainly scripts -->
+<script src="${cdn}js/jquery-2.1.1.js"></script>
+<script src="${cdn}js/bootstrap.min.js"></script>
+<script src="${cdn}js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="${cdn}js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="${cdn}js/inspinia.js"></script>
+<script src="${cdn}js/plugins/pace/pace.min.js"></script>
+<!-- iCheck -->
+<script src="${cdn}js/plugins/iCheck/icheck.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.i-checks').iCheck({
+            checkboxClass: 'icheckbox_square-green',
+            radioClass: 'iradio_square-green',
         });
-    </script>
+    });
+</script>
+<%if (request.getAttribute("script") != null) { %>${script}<% }%>
 </body>
 
 </html>
