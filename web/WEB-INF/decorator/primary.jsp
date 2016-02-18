@@ -11,6 +11,7 @@
 --> 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" >
 <link href="${cdn}css/plugins/iCheck/custom.css" rel="stylesheet">
+<link href="${cdn}css/plugins/dataTables/datatables.min.css" rel="stylesheet">
 <link href="${cdn}css/animate.css" rel="stylesheet">
 <link href="${cdn}css/style.css" rel="stylesheet">
 <%if (request.getAttribute("style") != null) { %>${style}<% } %>
