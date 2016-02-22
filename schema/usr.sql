@@ -1,12 +1,13 @@
 CREATE TABLE `usr` (
-  `uuid` char(32) NOT NULL,
-  `usr` varchar(50) NOT NULL COMMENT 'sign in account',
+  `uid` char(32) NOT NULL,
+  `account` varchar(50) NOT NULL COMMENT 'sign in account',
   `pwd` varchar(86) NOT NULL COMMENT 'sha512 encode base64 url safe',
-  `dept` char(32) NOT NULL,
-  `displayId` varchar(50) NOT NULL COMMENT 'display id',
-  `name` varchar(50) NOT NULL COMMENT 'full name',
   `display` varchar(50) NOT NULL COMMENT 'display name',
+  `dept` char(32) NOT NULL,
+  `empid` varchar(20) NOT NULL COMMENT 'employee id',
+  `name` varchar(50) NOT NULL COMMENT 'full name',
   `gender` int(11) NOT NULL DEFAULT '0' COMMENT '0 female, 1 male',
+  `thumb` char(22) DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   `ext` varchar(5) DEFAULT NULL COMMENT '分機',
   `mobile` varchar(15) NOT NULL,
@@ -18,7 +19,7 @@ CREATE TABLE `usr` (
   `upUsr` char(32) DEFAULT NULL,
   `crIP` varchar(45) DEFAULT NULL,
   `upIP` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`uuid`),
-  UNIQUE KEY `uk_usr_account` (`usr`),
-  UNIQUE KEY `uk_usr_displayId` (`displayId`)
+  PRIMARY KEY (`uid`),
+  UNIQUE KEY `uk_usr_account` (`account`),
+  UNIQUE KEY `uk_usr_display` (`display`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='user table';

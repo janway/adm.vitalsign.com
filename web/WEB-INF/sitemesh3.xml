@@ -3,5 +3,7 @@
 	<mapping path="/post.html" exclude="true" />
 	<mapping path="/error.html" exclue="true" />
 	<mapping path="/skin-config.html" exclue="true" />
+	<mapping path="/signout.jsp" exclue="true" />
+	<mapping path="/signin.html" exclue="true" />
 	<mapping path="/*.html" decorator="/WEB-INF/decorator/primary.jsp" />
 </sitemesh>

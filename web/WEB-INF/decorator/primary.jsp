@@ -1,10 +1,7 @@
 <%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
+<!DOCTYPE html><html><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>測試</title>
+<title>測試 -  <sitemesh:write property='title'/></title>
 <link href="${cdn}css/bootstrap.min.css" rel="stylesheet">
 <!-- 
 <link href="${cdn}fonts/font-awesome.css" rel="stylesheet">
@@ -15,6 +12,7 @@
 <link href="${cdn}css/animate.css" rel="stylesheet">
 <link href="${cdn}css/style.css" rel="stylesheet">
 <%if (request.getAttribute("style") != null) { %>${style}<% } %>
+ <sitemesh:write property='head'/>
 </head>
 <body>
     <div id="wrapper">
@@ -26,25 +24,22 @@
                             <img alt="image" class="img-circle" src="${cdn}img/profile_small.jpg" />
                              </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold">David Williams</strong>
-                             </span> <span class="text-muted text-xs block">Art Director <b class="caret"></b></span> </span> </a>
+                            <span class="clear"> <span class="block m-t-xs"> <strong class="font-bold"><%=(String)session.getAttribute("licence.name")%></strong>
+                             </span> <span class="text-muted text-xs block"><%=(String)session.getAttribute("licence.title")%> <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="profile.html">Profile</a></li>
-                            <li><a href="contacts.html">Contacts</a></li>
-                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li><a href="profile.html">個人檔案</a></li>
+                            <li><a href="contacts.html">聯絡資訊</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li><a href="login.html">登出</a></li>
                         </ul>
                     </div>
-                    <div class="logo-element">
-                        IN+
-                    </div>
+                    <div class="logo-element">BST+</div>
                 </li>
                 <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">系統管理</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="index.html">Dashboard v.1</a></li>
-                        <li><a href="dashboard_5.html">Dashboard v.5 <span class="label label-primary pull-right">NEW</span></a></li>
+                        <li><a href="usr-mgr.html"><i class="fa fa-cog"></i>帳號管理</a></li>
+                        <li><a href="prg-mgr.html"><i class="fa fa-cog"></i>程式管理</a></li>
                     </ul>
                 </li>
                 <li>
@@ -52,9 +47,6 @@
                 </li>
                 <li>
                     <a href="css_animation.html"><i class="fa fa-magic"></i> <span class="nav-label">CSS Animations </span><span class="label label-info pull-right">62</span></a>
-                </li>
-                <li class="landing_link">
-                    <a target="_blank" href="landing.html"><i class="fa fa-star"></i> <span class="nav-label">Landing Page</span> <span class="label label-warning pull-right">NEW</span></a>
                 </li>
             </ul>
         </div>
@@ -66,14 +58,12 @@
             <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
             <form role="search" class="navbar-form-custom" action="search_results.html">
                 <div class="form-group">
-                    <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                    <input type="text" placeholder="Search..." class="form-control" name="top-search" id="top-search">
                 </div>
             </form>
         </div>
             <ul class="nav navbar-top-links navbar-right">
-                <li>
-                    <span class="m-r-sm text-muted welcome-message">INSPINIA+ Admin Theme.</span>
-                </li>
+                <li><span class="m-r-sm text-muted welcome-message">INSPINIA+</span></li>
                 <li class="dropdown">
                     <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
                         <i class="fa fa-envelope"></i>  <span class="label label-warning">16</span>
@@ -151,15 +141,6 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a href="grid_options.html">
-                                <div>
-                                    <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small">4 minutes ago</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="divider"></li>
-                        <li>
                             <div class="text-center link-block">
                                 <a href="notifications.html">
                                     <strong>See All Alerts</strong>
@@ -170,14 +151,13 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="login.html"><i class="fa fa-sign-out"></i> Log out</a>
+                    <a href="signout.jsp"><i class="fa fa-sign-out"></i> 登出</a>
                 </li>
             </ul>
         </nav>
         </div>
             <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
-                    <h2>Static Tables</h2>
                     <ol class="breadcrumb">
                         <li><a href="index.html">Home</a></li>
                         <li><a>Tables</a></li>
@@ -194,24 +174,18 @@
         </div>
 	</div>
 </div>
-<!-- Mainly scripts -->
 <script src="${cdn}js/jquery-2.1.1.js"></script>
 <script src="${cdn}js/bootstrap.min.js"></script>
 <script src="${cdn}js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="${cdn}js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<!-- Custom and plugin javascript -->
 <script src="${cdn}js/inspinia.js"></script>
 <script src="${cdn}js/plugins/pace/pace.min.js"></script>
-<!-- iCheck -->
 <script src="${cdn}js/plugins/iCheck/icheck.min.js"></script>
 <script>
 (function($){
 $(document).ready(function(){
     $('.i-checks').iCheck({checkboxClass: 'icheckbox_square-green',radioClass: 'iradio_square-green',});
-});
-})(jQuery);
+});})(jQuery);
 </script>
 <%if (request.getAttribute("script") != null) { %>${script}<% }%>
-</body>
-
-</html>
+</body></html>

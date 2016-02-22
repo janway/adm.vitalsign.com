@@ -3705,6 +3705,7 @@ img.circle-border {
   background-color: #ffffff;
   padding: 0;
   margin-bottom: 0;
+  margin-top:10px;
 }
 .breadcrumb > li a {
   color: inherit;
