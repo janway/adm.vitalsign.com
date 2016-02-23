@@ -1,0 +1,113 @@
+<%@page import="com.biosensetek.DBUtils,com.biosensetek.Utils,com.biosensetek.Validator"%>
+<%@page import="java.sql.Connection,java.sql.PreparedStatement,java.sql.ResultSet"%>
+<%@page import="java.util.Collections"%>
+<%@page import="org.apache.commons.lang3.RandomStringUtils,org.apache.commons.lang3.StringUtils"%>
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%><%!
+private static final String rand = RandomStringUtils.randomAlphabetic(3);
+%><%
+System.out.println("signin.html");
+Collections.list(request.getParameterNames()).forEach(n->{
+	System.out.println(n+"="+request.getParameter(n));
+});
+
+if (session.getAttribute("licence") != null) {
+	String redirect = Utils.str(session.getAttribute("signin.html/return"), "index.html");
+	session.removeAttribute("signin.html/return");
+	response.sendRedirect(redirect); return;
+}
+if (StringUtils.equalsIgnoreCase("post", request.getMethod())) {
+	String a, b;
+	if ((a = Validator.create(request.getParameter(rand + "a")).regex("^(?i)[a-z]{3,10}$").valid()) == null) {
+		System.out.println("in1-->" + rand + "a");
+		request.setAttribute("alert", "帳號密碼不正確");
+	} else if ((b = Validator.create(request.getParameter(rand + "b")).valid()) == null) {
+		System.out.println("in2");
+		request.setAttribute("alert", "帳號密碼不正確");
+	} else {
+		System.out.println("in");
+		request.setAttribute("alert", "帳號密碼不正確");
+		try (Connection conn = DBUtils.conn("main")) {
+			String licence = null, old = null; a = a.toLowerCase();
+			try (PreparedStatement stat = conn.prepareStatement("SELECT uid,display,name,email,title,pwd FROM usr WHERE account=? AND status=1")) {
+				stat.setString(1, a); // 資料庫目前不分大小寫
+				try (ResultSet rs = stat.executeQuery()) {
+					if (rs.next()) {
+						String password = rs.getString(6);
+						if ((b = Utils.protect(new StringBuilder(a).append(b).toString())).equals(password)) {
+							session.setAttribute("licence", licence = rs.getString(1));
+							session.setAttribute("licence.display", rs.getString(2));
+							session.setAttribute("licence.name", rs.getString(3));
+							session.setAttribute("licence.email", rs.getString(4));
+							session.setAttribute("licence.title", rs.getString(5));
+							request.removeAttribute("alert");
+							System.out.println("ok");
+						}
+					}
+				}
+			}
+			//
+			if (licence != null) {
+				String redirect = Utils.str(session.getAttribute("signin.html/return"), "index.html");
+				session.removeAttribute("signin.html/return");
+				response.sendRedirect(redirect); return;
+			}
+		} catch(Exception e) {e.printStackTrace();}
+	}
+}
+%>
+<!DOCTYPE html><html><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INSPINIA | Sign In 2</title>
+<link href="${cdn}css/bootstrap.min.css" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" >
+<link href="${cdn}css/animate.css" rel="stylesheet">
+<link href="${cdn}css/style.css" rel="stylesheet">
+</head>
+<body class="gray-bg">
+    <div class="loginColumns animated fadeInDown">
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="font-bold">Welcome to IN+</h2>
+                <p>Perfectly designed and precisely prepared admin theme with over 50 pages with extra new web app views.</p>
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
+                </p>
+            </div>
+            <div class="col-md-6">
+                <div class="ibox-content">
+                    <form class=m-t role=form method=post action=<%=request.getRequestURI()%>>
+                        <div class="form-group">
+                            <input type=text name=<%=rand%>a class="form-control" placeholder="Username" required>
+                        </div>
+                        <div class="form-group">
+                            <input type=password name=<%=rand%>b class="form-control" placeholder="Password" required>
+                        </div>
+                        <button type=submit class="btn btn-primary block full-width m-b">登入</button>
+	                    <%if (request.getAttribute("alert") != null) {%>
+	                    <div class="alert alert-danger alert-dismissable">
+							<button class="close" type="button">×</button>
+							<%=(String)request.getAttribute("alert")%>
+						</div>
+	                    <%} %>
+                        <a href="#"><small>忘記密碼?</small></a>
+                        <p class="text-muted text-center"><small>Do not have an account?</small></p>
+                        <a class="btn btn-sm btn-white btn-block" href="register.html">註冊帳號</a>
+                    </form>
+                    <p class="m-t">
+                        <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-md-6">
+                Copyright Example Company
+            </div>
+            <div class="col-md-6 text-right">
+               <small>© 2016-2015</small>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

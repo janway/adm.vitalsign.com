@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="adm.vitalsign.com" default="default">
+	<path id="cp">
+		<pathelement location="build/classes" />
+		<fileset dir="web/WEB-INF/lib" includes="*.jar" />
+	</path>
+	<taskdef name="min" classpathref="cp" classname="com.biosensetek.Min" />
+
+	<property name="raw" value="raw" />
+	<property name="cdn" value="/home/eapollo/wkres" />
+	
+	<target name="default" depends="css,js,res,plugins" />
+
+	<target name="res">
+		<!-- font-awesome -->
+		<copy file="${raw}/font-awesome/font-awesome.min.css" tofile="${cdn}/font/fontawesome.css" />
+		<copy todir="${cdn}/font">
+			<fileset dir="${raw}/font-awesome" includes="fontawesome-webfont**,FontAwesome.otf" />
+		</copy>
+		<!-- line-icons -->
+		<min to="${cdn}/font/line-icons.css">
+			<src from="${raw}/line-icons/line-icons.css" />
+		</min>
+		<copy todir="${cdn}/font">
+			<fileset dir="${raw}/line-icons" includes="Simple-Line-Icons**" />
+		</copy>
+		<!-- glyphicons -->
+		<copy todir="${cdn}/font">
+			<fileset dir="${raw}/bootstrap/fonts" includes="glyphicons**" />
+		</copy>
+		<!-- context menu -->
+		<copy todir="${cdn}/img">
+			<fileset dir="${raw}/adm/contextMenu/images" includes="*.png" />
+		</copy>
+		<!-- images -->
+		<copy todir="${cdn}/img">
+			<fileset dir="${raw}/img" includes="**.*" />
+		</copy>
+		<!-- openshop -->
+		<copy todir="${cdn}/img/openshop">
+			<fileset dir="${raw}/img/openshop" includes="**.*" />
+		</copy>
+		<!-- theme -->
+		<copy todir="${cdn}/img" failonerror="no">
+			<fileset dir="${raw}/theme/img" includes="**.*" />
+		</copy>
+	</target>
+
+	<target name="css">
+		<!-- bootstrap -->
+		<min to="${cdn}/css/bootstrap.css">
+			<src from="${raw}/bootstrap/css/bootstrap.css" />
+			<!--src from="${raw}/bootstrap/css/bootstrap-theme.css" /-->
+		</min>
+		<!-- bootstrap datepicker -->
+		<copy file="${raw}/bootstrap-datepicker-1.4.0-dist/bootstrap-datepicker3.min.css" tofile="${cdn}/css/datepicker.css" />
+		<!-- ace -->
+		<min to="${cdn}/css/ace.css">
+			<src from="${raw}/adm/css/ace.customized.css" />
+		</min>
+		<!-- ace IE 9 -->
+		<min to="${cdn}/css/ace-ie9.css">
+			<src from="${raw}/adm/css/ace-part2.min.css" />
+			<src from="${raw}/adm/css/ace-ie.min.css" />
+		</min>
+		<!-- ace skins -->
+		<min to="${cdn}/css/skins.css">
+			<src from="${raw}/adm/css/ace-skins.min.css" />
+		</min>
+		<!-- admin -->
+		<min to="${cdn}/css/adm.css">
+			<src from="${raw}/adm/css/adm.css" />
+		</min>
+		<!-- context menu -->
+		<min to="${cdn}/css/contextmenu.css">
+			<src from="${raw}/adm/contextMenu/jquery.contextMenu.customized.css" />
+		</min>
+		<!--file upload-->
+		<min to="${cdn}/css/colorbox.css">
+			<src from="${raw}/adm/css/colorbox.customized.css" />
+		</min>
+		<min to="${cdn}/css/fileupload.css">
+			<src from="${raw}/adm/fileupload/css/jquery.fileupload-ui.css" />
+			<src from="${raw}/adm/fileupload/css/jquery.fileupload.css" />
+		</min>
+		<!-- common -->
+		<min to="${cdn}/css/common.css">
+			<src from="${raw}/www/common.css" />
+		</min>
+		<!-- default -->
+		<min to="${cdn}/css/default.css">
+			<src from="${raw}/www/default.css" />
+		</min>
+		<!-- sign -->
+		<min to="${cdn}/css/sign.css">
+			<!-- src from="${raw}/dai/loginStyle.css" / -->
+			<src from="${raw}/www/sign.css" />
+		</min>
+		<!-- profile -->
+		<min to="${cdn}/css/profile.css">
+			<!--src from="${raw}/dai/profileStyle.css" / -->
+			<src from="${raw}/www/profile.css" />
+		</min>
+		<!-- cart -->
+		<min to="${cdn}/css/cart.css">
+			<!-- src from="${raw}/dai/common-style.css" />
+			<src from="${raw}/dai/cart-style.css" / -->
+			<src from="${raw}/www/cart.css" />
+		</min>
+		<!-- shop+item -->
+		<min to="${cdn}/css/shop.css">
+			<src from="${raw}/www/shop.css" />
+		</min>
+		<!-- search -->
+		<min to="${cdn}/css/search.css">
+			<src from="${raw}/www/search.css" />
+		</min>
+	</target>
+
+	<target name="js">
+		<!-- jquery -->
+		<copy file="${raw}/jquery/jquery-1.11.2.min.js" tofile="${cdn}/js/jquery1.js" />
+		<copy file="${raw}/jquery/jquery-migrate-1.2.1.min.js" tofile="${cdn}/js/jquerym1.js" />
+		<copy file="${raw}/jquery/jquery-2.1.3.min.js" tofile="${cdn}/js/jquery2.js" />
+		<copy file="${raw}/adm/js/jquery1x.min.js" tofile="${cdn}/js/jquery1x.js" />
+		<copy file="${raw}/adm/js/jquery.mobile.custom.min.js" tofile="${cdn}/js/jquery.mobile.js" />
+		<copy file="${raw}/adm/js/jquery-ui.custom.min.js" tofile="${cdn}/js/jqueryui1.js" />
+		<!-- IE bug -->
+		<min to="${cdn}/js/ie-fix.js">
+			<src from="${raw}/ie-bug/respond.js" />
+			<src from="${raw}/ie-bug/html5shiv.js" />
+		</min>
+		<!-- bootstrap -->
+		<concat destfile="${cdn}/js/bootstrap.js"><!-- bootstrap depend on jquery. We combine them together directly. -->
+			<fileset file="${raw}/jquery/jquery-1.11.2.min.js"/>
+			<fileset file="${raw}/bootstrap/js/bootstrap.min.js"/>
+		</concat>
+		<!-- bootstrap for adm -->
+		<copy file="${raw}/bootstrap/js/bootstrap.min.js" tofile="${cdn}/adm/js/bootstrap.js" />
+		<!-- bootstrap datepicker -->
+		<concat destfile="${cdn}/js/datepicker.js">
+			<fileset file="${raw}/bootstrap-datepicker-1.4.0-dist/bootstrap-datepicker.min.js" />
+			<fileset file="${raw}/bootstrap-datepicker-1.4.0-dist/bootstrap-datepicker.zh-TW.min.js" />
+		</concat>
+		<!-- bootstrap tags -->
+		<min to="${cdn}/js/bootstrap-tag.js">
+			<src from="${raw}/adm/js/bootstrap-tag.min.js" />
+		</min>
+		<!-- scrolltotop -->
+		<copy file="${raw}/scrolltotop/js/jquery.scrollToTop.min.js" tofile="${cdn}/js/scrollToTop.js" />
+		<!-- jquery validate -->
+		<concat destfile="${cdn}/js/validate.js">
+			<fileset file="${raw}/jquery-validate/jquery.validate.js" />
+			<fileset file="${raw}/jquery-validate/additional-methods.js" />
+			<fileset file="${raw}/jquery-validate/localization/messages_zh_TW.js" />
+		</concat>
+		<!-- ace extra -->
+		<copy file="${raw}/adm/js/ace-extra.min.js" tofile="${cdn}/js/ace-extra.js" />
+		<!-- excanvas -->
+		<copy file="${raw}/adm/js/excanvas.min.js" tofile="${cdn}/js/excanvas.js" />
+		<!-- touch punch -->
+		<min to="${cdn}/js/jqueryui.touch-punch.js">
+			<src from="${raw}/adm/js/jquery.ui.touch-punch.min.js" />
+		</min>
+		<!-- easy pie chart -->
+		<min to="${cdn}/js/jquery.easypiechart.js">
+			<src from="${raw}/adm/js/jquery.easypiechart.min.js" />
+		</min>
+		<!-- spark line -->
+		<min to="${cdn}/js/jquery.sparkline.js">
+			<src from="${raw}/adm/js/jquery.sparkline.min.js" />
+		</min>
+		<!--jquery flot-->
+		<min to="${cdn}/js/jquery.flot.js">
+			<src from="${raw}/adm/js/flot/jquery.flot.min.js" />
+			<src from="${raw}/adm/js/flot/jquery.flot.pie.min.js" />
+			<src from="${raw}/adm/js/flot/jquery.flot.resize.min.js" />
+		</min>
+		<!-- nestable -->
+		<min to="${cdn}/js/jquery.nestable.js">
+			<src from="${raw}/adm/js/jquery.nestable.min.js" />
+		</min>
+		<!-- context menu -->
+		<min to="${cdn}/js/contextmenu.js">
+			<src from="${raw}/adm/contextMenu/jquery.contextMenu.js" />
+			<src from="${raw}/adm/contextMenu/jquery.ui.position.js" />
+		</min>
+		<!-- bootbox -->
+		<min to="${cdn}/js/bootbox.js">
+			<src from="${raw}/adm/js/bootbox.js" />
+		</min>
+		<!-- notify -->
+		<min to="${cdn}/js/notify.js">
+			<src from="${raw}/adm/js/notify.min.js" />
+		</min>
+		<!-- underscore -->
+		<min to="${cdn}/js/underscore.js">
+			<src from="${raw}/adm/js/underscore-min.js" />
+		</min>
+		<!-- colorbox -->
+		<min to="${cdn}/js/jquery.colorbox.js">
+			<src from="${raw}/adm/js/jquery.colorbox.min.js" />
+		</min>
+		<!-- file upload-->
+		<min to="${cdn}/js/fileupload.js">
+			<src from="${raw}/adm/fileupload/js/vendor/jquery.ui.widget.js" />
+			<src from="${raw}/adm/fileupload/js/canvas-to-blob.min.js" />
+			<src from="${raw}/adm/fileupload/js/load-image.all.min.js" />
+			<src from="${raw}/adm/fileupload/js/jquery.iframe-transport.js" />
+			<src from="${raw}/adm/fileupload/js/jquery.fileupload.js" />
+			<src from="${raw}/adm/fileupload/js/jquery.fileupload-process.js" />
+			<src from="${raw}/adm/fileupload/js/jquery.fileupload-image.js" />
+			<src from="${raw}/adm/fileupload/js/jquery.fileupload-validate.js" />
+		</min>
+		<!--ace-->
+		<min to="${cdn}/js/ace.js">
+			<src from="${raw}/adm/js/ace-elements.min.js" />
+			<src from="${raw}/adm/js/ace.min.js" />
+		</min>
+		<!-- default -->
+		<min to="${cdn}/js/default.js">
+			<src from="${raw}/scrolltotop/js/jquery.scrollToTop.js" />
+			<src from="${raw}/www/default.js" />
+		</min>
+	</target>
+	
+	<target name="plugins">
+		<!--ckeditor-->
+		<copy todir="${cdn}/ck">
+			<fileset dir="${raw}/ckeditor-full">
+				<include name="ckeditor.js" />
+				<include name="config.js" />
+				<include name="styles.js" />
+				<include name="contents.css" />
+				<include name="skins/**/**.*" />
+				<include name="lang/**.*" />
+				<include name="plugins/**/**.*" />
+			</fileset>
+		</copy>
+		<!--cubeportfolio-->
+		<min to="${cdn}/css/cubeportfolio.css">
+			<src from="${raw}/plugin/cubeportfolio/cubeportfolio.min.css" />
+			<src from="${raw}/plugin/cubeportfolio/custom-cubeportfolio.css" />
+		</min>
+		<min to="${cdn}/js/cubeportfolio.js">
+			<src from="${raw}/plugin/cubeportfolio/jquery.cubeportfolio.min.js" />
+		</min>
+	</target>
+
+</project>

@@ -3,7 +3,7 @@
 	<display-name>wowkool.com</display-name>
 	<filter>
 		<filter-name>adapter</filter-name>
-		<filter-class>com.eapollo.Adapter</filter-class>
+		<filter-class>com.biosensetek.Adapter</filter-class>
 	</filter>
 	<filter-mapping>
 		<filter-name>adapter</filter-name>

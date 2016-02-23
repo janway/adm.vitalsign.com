@@ -1,0 +1,28 @@
+<%@page import="java.util.Calendar"%>
+<%@page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"%><%
+
+%><div class=fixed-box><div class=fixed-nav><ul><%
+if (session.getAttribute("licence.adm") != null) {
+	%><li><a href=${prefix}adm/ title=商店管理><i class="fa fa-cog"></i><div>商店管理</div></a></li><%
+}
+if (session.getAttribute("licence") != null) {
+	%><li><a href=${prefix}profile.html><i class="fa fa-user"></i><div>我的帳戶</div></a></li><%
+	%><li><a href=${prefix}signout.jsp title=登出><i class="fa fa-sign-out"></i><div>登出</div></a></li><%
+} else {
+	%><li><a href=${prefix}signup.html title=註冊><i class="fa fa-user"></i><div>註冊</div></a></li><%
+	%><li><a href=${prefix}signin.html title=登入><i class="fa fa-sign-in"></i><div>登入</div></a></li><%
+}
+%><li><a href=${prefix}profile-cart-list.html><i class="fa fa-shopping-cart"></i><div>購物車</div></a></li><%
+%><li><a href="javascript:scroll(0,0)"><i class="fa fa-chevron-up"></i><div>返回頂端</div></a></li><%
+%></ul></div></div><%
+
+%><div class=footerbox><div class=container><footer class="text-center mb50"><%
+%><ul class=services><%
+	%><li><a href=http://www.global-opto.com target=_blank><img src=${cdn}img/footer-global-opto.png alt=漢唐光電><div class=ser-title>WoWKool 哇酷 與 eApollo 太陽神<br>網路服務之母公司</div></a></li><%
+	%><li><a href=http://www.eapollo.com target=_blank><img src=${cdn}img/footer-eapollo.png alt="eApollo 太陽神搜尋引擎"><div class=ser-title>eApollo 太陽神搜尋引擎<br>雙國語言搜尋</div></a></li><%
+	%><li><a href=http://www.8899b2b.com target=_blank><img src=${cdn}img/footer-8899b2b.png alt="eApollo 太陽神 B2B"><div class=ser-title>eApollo 太陽神 B2B<br>企業會員 2300 萬</div></a></li><%
+	%><li><a href=http://blog.eapollo.com target=_blank><img src=${cdn}img/footer-blog.png alt="eApollo 太陽神部落格"><div class=ser-title>eApollo 太陽神部落格<br>社群、微網誌、影音服務</div></a></li><%
+%></ul><%
+%><img src=${cdn}img/logogroup-900.png title=漢唐集團商標><%
+%><div class=clear><p class=mar-top10>© 2010 - <%=Calendar.getInstance().get(Calendar.YEAR)%> 漢唐光電科技股份有限公司</p></div><%
+%></footer></div></div>

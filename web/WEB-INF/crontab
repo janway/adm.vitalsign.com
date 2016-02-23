@@ -1,0 +1,5 @@
+#* * * * * java:com.biosensetek.run http://127.0.0.1:8080/fun/shop2solr.jsp
+#* * * * * java:com.biosensetek.run http://127.0.0.1:8080/fun/item2solr.jsp
+#*/5 * * * * java:com.biosensetek.run http://127.0.0.1:8080/fun/nocontract.jsp
+#32 3 * * * java:com.biosensetek.run http://127.0.0.1:8080/fun/sync-clean.jsp
+#43 4 * * * java:com.biosensetek.run http://127.0.0.1:8080/fun/item-garbage.jsp
