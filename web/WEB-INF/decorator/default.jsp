@@ -35,18 +35,18 @@
                     </div>
                     <div class="logo-element">BST+</div>
                 </li>
-                <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">系統管理</span> <span class="fa arrow"></span></a>
+                <li class=active>
+                    <a href="index.html"><i class="fa fa-cog"></i> <span class="nav-label">系統管理</span> <span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="usr-mgr.html"><i class="fa fa-cog"></i>帳號管理</a></li>
-                        <li><a href="prg-mgr.html"><i class="fa fa-cog"></i>程式管理</a></li>
+                        <li><a href="usr-mgr.html"><i class="fa fa-user"></i>帳號管理</a></li>
+                        <li class=active><a href="prg-mgr.html"><i class="fa fa-gavel"></i>程式管理</a></li>
                     </ul>
                 </li>
-                <li>
-                    <a href="layouts.html"><i class="fa fa-diamond"></i> <span class="nav-label">Layouts</span></a>
-                </li>
-                <li>
-                    <a href="css_animation.html"><i class="fa fa-magic"></i> <span class="nav-label">CSS Animations </span><span class="label label-info pull-right">62</span></a>
+				<li>
+                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">專案管理</span> <span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                         <li><a href="code-mgr.html"><i class="fa fa-git"></i>研發文件管理</a></li>
+                    </ul>
                 </li>
             </ul>
         </div>

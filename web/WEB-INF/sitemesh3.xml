@@ -5,5 +5,5 @@
 	<mapping path="/skin-config.html" exclue="true" />
 	<mapping path="/signout.jsp" exclue="true" />
 	<mapping path="/signin.html" exclue="true" />
-	<mapping path="/*.html" decorator="/WEB-INF/decorator/primary.jsp" />
+	<mapping path="/*.html" decorator="/WEB-INF/decorator/default.jsp" />
 </sitemesh>

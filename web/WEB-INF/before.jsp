@@ -41,6 +41,7 @@ if (StringUtils.endsWithAny(request.getServletPath(), "html", "upload.jsp", "a.j
 //
 String requestURI = request.getRequestURI();
 //
+
 /*
 if (requestURI.matches("^/adm/?(?:.+?html)?$")) {
 	String licence = (String) session.getAttribute("licence");
